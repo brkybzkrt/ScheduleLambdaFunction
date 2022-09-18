@@ -7,7 +7,6 @@
   "dependencies": {
     "aws-sdk": "^2.1218.0",
     "axios": "^0.27.2",
-    "moment": "^2.29.4",
     "serverless-webpack": "^5.9.1"
   }
 }
