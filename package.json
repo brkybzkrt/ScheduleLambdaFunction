@@ -1,5 +1,5 @@
 {
-  "name": "myFirstScheduleLambdaFunction",
+  "name": "scheduleLambdaFunction",
   "version": "1.0.0",
   "description": "Example of creating a function that runs as a cron job using the serverless `schedule` event",
   "author": "",
@@ -7,6 +7,7 @@
   "dependencies": {
     "aws-sdk": "^2.1218.0",
     "axios": "^0.27.2",
+    "serverless-local-schedule": "^0.1.7",
     "serverless-webpack": "^5.9.1"
   }
 }

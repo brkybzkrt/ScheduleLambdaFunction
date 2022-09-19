@@ -4,6 +4,7 @@ frameworkVersion: '3'
 
 plugins:
     - serverless-webpack
+    - serverless-local-schedule
 
 package: 
     individually: true
@@ -21,9 +22,14 @@ provider:
           - ses:*
       Resource: '*'
 
+
+
 functions:
   sendCurrencyRates:
     handler: functions/sendScheduleEmail.handler
     events:
-      - schedule: cron(0 10 ? * MON-FRI *)
+      - schedule:
+          rate: cron(00 10 ? * MON-FRI *)
+          timezone: Europe/Istanbul
+
  

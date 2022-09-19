@@ -35,13 +35,13 @@ const getValues =async()=>{
 let array =[]
 
 
-let {data} = await axios.get(`http://hasanadiguzel.com.tr/api/kurgetir`)
+let {data}= await axios.get(`https://api.collectapi.com/economy/allCurrency`,{
+  headers:{
+    'Content-Type': 'application/json',
+    'Authorization': 'apikey YOUR-API-KEY'
+  }}).catch(err=>( console.log(err)))
 
-
-for (let i = 0; i < 10; i++) {
-    
-    array.push(data.TCMB_AnlikKurBilgileri[i])
-}
+array=await data.result
 return array;
 }
 
@@ -49,9 +49,12 @@ const createHtml =async(data)=>{
 return ` <html>
 <body>
 ${data?.map((a)=>(
-`<h3>Para Birimi: ${a.Isim} - ${a.CurrencyName}</h3>
-    <p>Alış: ${a.BanknoteBuying}</p>
-    <p>Satış: ${a.BanknoteSelling}</p>`   
+`<h3>Para Birimi: ${a.name} - ${a.code}</h3>
+    <p>Alış: ${a.buying}</p>
+    <p>Satış: ${a.selling}</p>
+    <p>Gün: ${a.date}</p>
+    <p>Saat: ${a.time}</p>`
+
 ))}
 
 </body>
@@ -73,3 +76,4 @@ const getIdentities =async()=>{
 
 
 }
+
